@@ -752,6 +752,17 @@ async function init() {
 
 document.getElementById('refreshBtn').onclick = init;
 init();
+
+// Service Worker — auto-update when new version deployed
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('./sw.js');
+
+  // When a new SW takes control, reload once to get the latest version
+  let reloading = false;
+  navigator.serviceWorker.addEventListener('controllerchange', () => {
+    if (!reloading) { reloading = true; window.location.reload(); }
+  });
+}
 </script>
 </body>
 </html>
