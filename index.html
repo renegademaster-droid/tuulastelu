@@ -178,41 +178,36 @@
     @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.3; } }
 
     /* MAP TIME BAR */
-    .map-time-bar { background: var(--bg); padding: 8px 0 10px; flex-shrink: 0; }
+    .map-time-bar { background: var(--bg); padding: 10px 0 14px; flex-shrink: 0; }
 
-    .map-day-tabs { display: flex; gap: 6px; padding: 0 16px; margin-bottom: 6px; }
-    .map-day-tab {
-      padding: 4px 12px; border-radius: 6px;
-      font-size: 12px; font-weight: 500;
-      cursor: pointer;
-      border: 1.5px solid var(--border);
-      background: transparent; color: var(--muted);
-      -webkit-tap-highlight-color: transparent;
+    .map-time-scroll {
+      overflow-x: auto; white-space: nowrap;
+      padding: 0 16px;
+      -webkit-overflow-scrolling: touch;
+      scroll-snap-type: x proximity;
     }
-    .map-day-tab.active { background: var(--surface2); border-color: var(--accent2); color: var(--text); }
-
-    .map-time-scroll { overflow-x: auto; white-space: nowrap; padding: 0 16px; -webkit-overflow-scrolling: touch; }
     .map-time-scroll::-webkit-scrollbar { height: 0; }
 
     .map-time-chip {
-      display: inline-flex; flex-direction: column; align-items: center;
-      padding: 5px 8px; margin-right: 5px;
-      border-radius: 8px; background: var(--surface);
+      display: inline-flex; flex-direction: column; align-items: center; justify-content: center;
+      padding: 10px 14px; margin-right: 6px;
+      border-radius: 10px; background: var(--surface);
       border: 1.5px solid transparent;
-      cursor: pointer; min-width: 46px;
+      cursor: pointer; min-width: 58px; min-height: 58px;
       -webkit-tap-highlight-color: transparent;
       transition: background 0.1s, border-color 0.1s;
+      scroll-snap-align: start;
     }
     .map-time-chip.active { background: var(--surface2); border-color: var(--accent2); }
-    .map-time-chip-hour { font-size: 12px; font-weight: 600; color: var(--text); }
-    .map-time-chip-speed { font-size: 10px; font-weight: 500; margin-top: 1px; }
+    .map-time-chip-hour { font-size: 14px; font-weight: 600; color: var(--text); }
+    .map-time-chip-speed { font-size: 12px; font-weight: 600; margin-top: 3px; }
 
     .map-time-date-sep {
       display: inline-flex; align-items: center;
-      font-size: 10px; font-weight: 600;
+      font-size: 11px; font-weight: 600;
       color: var(--accent); letter-spacing: 0.5px;
-      padding: 0 8px 0 4px; white-space: nowrap;
-      vertical-align: middle;
+      padding: 0 10px 0 4px; white-space: nowrap;
+      vertical-align: middle; min-height: 58px;
     }
 
     .date-sep {
